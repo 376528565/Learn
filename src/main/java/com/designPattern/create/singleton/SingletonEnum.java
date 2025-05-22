@@ -34,6 +34,7 @@ public enum SingletonEnum {
         System.out.println("..........");
         System.out.println("alen....");
         System.out.println("deal....");
+        System.out.println("bella...");
         return 0;
     }
 
