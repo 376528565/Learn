@@ -21,7 +21,7 @@ public enum SingletonEnum {
     private int age;
 
     /**
-     * 枚举类实现单例模式  同步数据
+     * 枚举类实现单例模式
      * @param name
      * @return
      */
@@ -32,6 +32,7 @@ public enum SingletonEnum {
                 return item.age;
         }
         System.out.println("alen....");
+        System.out.println("deal....");
         return 0;
     }
 
