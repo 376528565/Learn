@@ -31,6 +31,7 @@ public enum SingletonEnum {
             if (item.name.equals(name))
                 return item.age;
         }
+        System.out.println("..........");
         System.out.println("alen....");
         System.out.println("deal....");
         return 0;
