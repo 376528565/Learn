@@ -21,7 +21,7 @@ public enum SingletonEnum {
     private int age;
 
     /**
-     * 枚举类实现单例模式
+     * 枚举类实现单例模式  同步数据
      * @param name
      * @return
      */
