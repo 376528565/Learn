@@ -11,6 +11,7 @@ public class SyncThread {
 
     public static void main(String[] args) throws InterruptedException {
         SyncThread syncThread = new SyncThread();
+        //锁类
         Thread thread = new Thread(SyncThread::show);
         Thread thread1 = new Thread(SyncThread::show);
         thread.start();

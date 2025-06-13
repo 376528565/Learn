@@ -1,5 +1,8 @@
 package com.thread.volatileDemo;
 
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class AtomicDemo {
 
     /**
@@ -13,14 +16,15 @@ public class AtomicDemo {
      * 因此我们在编写代码时一般不把long 和 double 变量专门声明为 volatile多数情况下也是不会错的
      */
 
-    private int i;
+    private volatile AtomicInteger i;
 
     public void addI() {
-        i++;
+        i.incrementAndGet();
     }
 
     public static void main(String[] args) throws InterruptedException {
         AtomicDemo atomicDemo = new AtomicDemo();
+        CountDownLatch countDownLatch = new CountDownLatch(100);
         for (int n = 0; n < 100; n++) {
             new Thread(() -> {
                 try {
@@ -29,9 +33,10 @@ public class AtomicDemo {
                     throw new RuntimeException(e);
                 }
                 atomicDemo.addI();
+                countDownLatch.countDown();
             }).start();
         }
-        Thread.sleep(10000);
+        countDownLatch.await();
         System.out.println(atomicDemo.i);
     }
 }

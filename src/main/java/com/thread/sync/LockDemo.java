@@ -11,6 +11,7 @@ public class LockDemo {
     /**
      * 针对lock的condition调用await和signal方法时，只有在线程获取锁时才能执行await和signal方法
      * 内部通过lockSupport的park和unPark方法实现最基础的线程wait和唤醒
+     * 如果定义多个condition，每个condition单独维护一个等待队列，被唤醒时也只是当前condition队列中线程被唤醒
      */
     private Condition condition = lock.newCondition();
     public void func1(){

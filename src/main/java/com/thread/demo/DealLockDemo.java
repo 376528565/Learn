@@ -23,6 +23,11 @@ public class DealLockDemo {
     private static List<byte[]> memoryLeakList = new ArrayList<>();
 
     public static void main(String[] args) {
+
+        DealLockDemo dealLockDemo = new DealLockDemo();
+        Class<? extends DealLockDemo> aClass = dealLockDemo.getClass();
+
+
         System.out.println("内存溢出演示程序启动...");
         System.out.println("当前JVM内存参数：");
         System.out.println("初始堆内存(Xms): " + Runtime.getRuntime().totalMemory() / 1024 + "KB");
